@@ -24,7 +24,9 @@
     "url": "https://github.com/Ashe3/frontend-project-lvl1/issues"
   },
   "homepage": "https://github.com/Ashe3/frontend-project-lvl1#readme",
-  "dependencies": {},
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
