@@ -4,7 +4,9 @@
   "description": "The first project is focused on knowledge with the JavaScript ecosystem. There is a rather difficult comparison with the native languages ​​of PHP, Ruby or Python. The number of concepts, tools and their bundles is so large that even the simplest developers sometimes head around the idea. Let it start all over the canon, an even simpler project brings along the tidbit. Check out the key components components of any modern js application:",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-map inline",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,18 @@
   "bugs": {
     "url": "https://github.com/Ashe3/frontend-project-lvl1/issues"
   },
-  "homepage": "https://github.com/Ashe3/frontend-project-lvl1#readme"
+  "homepage": "https://github.com/Ashe3/frontend-project-lvl1#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3"
+  },
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "files": [
+    "dist"
+  ]
 }
