@@ -14,18 +14,27 @@ const wrongAnswer = (answer, userName) => {
 };
 const generateRandNumber = () => Math.round(Math.random() * 100);
 
+const checkVal = (number, answer) => {
+    if (number % 2 === 0 && answer === 'yes') {
+        return true;
+    }
+    if (number % 2 !== 0 && answer === 'no') {
+        return true;
+    }
+    return false;
+};
+
 const game = (userName) => {
     for (let i = 0; i < 3; i += 1) {
         const number = generateRandNumber();
         console.log(`Question: ${number}`);
         const answer = readlineSync.question('Your answer: ');
-        if (number % 2 === 0 && answer === 'yes') {
-            console.log('Correct!');
-        } else if (number % 2 !== 0 && answer === 'no') {
-            console.log('Correct!');
-        } else {
+
+        if (!checkVal(number, answer)) {
             return wrongAnswer(answer, userName);
         }
+
+        console.log('Correct!');
     }
     console.log(`Congratulations, ${userName}!\n`);
     return 0;
