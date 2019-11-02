@@ -13,7 +13,6 @@ const game = (userName) => {
         console.log(`Let's try again, ${userName}!\n`);
         return ERR_VAL;
     };
-
     for (let i = 0; i < 3; i += 1) {
         const number = Math.round(Math.random() * 100);
         console.log(`Question: ${number}`);
@@ -34,7 +33,6 @@ const game = (userName) => {
             return wrongAnswer(answer);
         }
     }
-
     console.log(`Congratulations, ${userName}!\n`);
     return 0;
 };
