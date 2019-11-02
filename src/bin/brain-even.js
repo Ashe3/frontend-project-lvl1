@@ -12,10 +12,11 @@ const wrongAnswer = (answer, userName) => {
     console.log(`Let's try again, ${userName}!\n`);
     return ERR_VAL;
 };
+const generateRandNumber = () => Math.round(Math.random() * 100);
 
 const game = (userName) => {
     for (let i = 0; i < 3; i += 1) {
-        const number = Math.round(Math.random() * 100);
+        const number = generateRandNumber();
         console.log(`Question: ${number}`);
         const answer = readlineSync.question('Your answer: ');
         if (number % 2 === 0 && answer === 'yes') {
