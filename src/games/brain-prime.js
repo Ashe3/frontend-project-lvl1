@@ -7,7 +7,8 @@ const generateCondition = () => games.generateRandNumber(MAX_VAL, MIN_VAL);
 
 const isPrime = (value) => {
     const iter = (number, divider) => {
-        if ((value + 1) / 2 < number && divider === 1) {
+        const halfValue = (value + 1) / 2;
+        if (halfValue < number && divider === 1) {
             return true;
         }
 
