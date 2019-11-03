@@ -1,9 +1,9 @@
 import * as games from '../index';
 
-const MAX_VAL = 250;
-const MIN_VAL = 1;
+const maxGenValue = 250;
+const minGenValue = 1;
 
-const generateCondition = () => games.generateRandNumber(MAX_VAL, MIN_VAL);
+const generateCondition = () => games.generateRandNumber(maxGenValue, minGenValue);
 
 const calculateAnswer = (number) => (number % 2 === 0 ? 'yes' : 'no');
 

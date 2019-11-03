@@ -1,14 +1,13 @@
 import * as games from '../index';
 
-const MAX_VAL = 250;
-const MIN_VAL = 1;
-const RMAX_VAL = 2;
-const RMIN_VAL = 0;
+const maxGenValue = 250;
+const minGenValue = 0;
+const chooseSymbValue = 2;
 
 const generateCondition = () => {
-    const firstRandNumber = games.generateRandNumber(MAX_VAL, MIN_VAL);
-    const secondRandNumber = games.generateRandNumber(MAX_VAL, MIN_VAL);
-    const symbol = '+-*'[games.generateRandNumber(RMAX_VAL, RMIN_VAL)];
+    const firstRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
+    const secondRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
+    const symbol = '+-*'[games.generateRandNumber(chooseSymbValue, minGenValue)];
     return `${firstRandNumber} ${symbol} ${secondRandNumber}`;
 };
 /* eslint no-eval: 0 */

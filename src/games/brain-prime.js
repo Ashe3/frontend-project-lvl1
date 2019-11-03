@@ -1,30 +1,30 @@
 import * as games from '../index';
 
-const MAX_VAL = 250;
-const MIN_VAL = 1;
+const maxGenValue = 250;
+const minGenValue = 1;
 
-const generateCondition = () => games.generateRandNumber(MAX_VAL, MIN_VAL);
+const generateCondition = () => games.generateRandNumber(maxGenValue, minGenValue);
 
-const iter = (value, number, divider) => {
+const iter = (value, suggDivider, divider) => {
     const half = value / 2;
-    if (number > half && divider === 1) {
+    if (suggDivider > half && divider === 1) {
         return true;
     }
-    if (value % number === 0) {
+    if (value % suggDivider === 0) {
         return false;
     }
 
-    return iter(value, number + 1, divider);
+    return iter(value, suggDivider + 1, divider);
 };
 
-const isPrime = (value) => {
-    if (value === 2) {
+const isPrime = (number) => {
+    if (number === 2) {
         return true;
     }
-    if (value % 2 === 0) {
+    if (number % 2 === 0) {
         return false;
     }
-    return iter(value, 2, 1);
+    return iter(number, 2, 1);
 };
 
 const calculateAnswer = (number) => (isPrime(number) ? 'yes' : 'no');

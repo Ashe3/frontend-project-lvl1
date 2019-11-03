@@ -1,11 +1,11 @@
 import * as games from '../index';
 
-const MAX_VAL = 250;
-const MIN_VAL = 2;
+const maxGenValue = 250;
+const minGenValue = 2;
 
 const generateCondition = () => {
-    const firstRandNumber = games.generateRandNumber(MAX_VAL, MIN_VAL);
-    const secondRandNumber = games.generateRandNumber(MAX_VAL, MIN_VAL);
+    const firstRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
+    const secondRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
     return `${firstRandNumber} ${secondRandNumber}`;
 };
 
