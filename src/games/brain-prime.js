@@ -5,22 +5,26 @@ const MIN_VAL = 1;
 
 const generateCondition = () => games.generateRandNumber(MAX_VAL, MIN_VAL);
 
-const isPrime = (value) => {
-    const iter = (number, divider) => {
-        const halfValue = (value + 1) / 2;
-        if (halfValue < number && divider === 1) {
-            return true;
-        }
-
-        if (value % number === 0) {
-            return false;
-        }
-        return iter(number + 1, divider);
-    };
-    if (value % 2 === 0 && value !== 2) {
+const iter = (value, number, divider) => {
+    const half = value / 2;
+    if (number > half && divider === 1) {
+        return true;
+    }
+    if (value % number === 0) {
         return false;
     }
-    return iter(2, 1);
+
+    return iter(value, number + 1);
+};
+
+const isPrime = (value) => {
+    if (value === 2) {
+        return true;
+    }
+    if (value % 2 === 0) {
+        return false;
+    }
+    return iter(value, 2, 1);
 };
 
 const calculateAnswer = (number) => (isPrime(number) ? 'yes' : 'no');
