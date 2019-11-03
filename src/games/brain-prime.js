@@ -14,7 +14,7 @@ const iter = (value, number, divider) => {
         return false;
     }
 
-    return iter(value, number + 1);
+    return iter(value, number + 1, divider);
 };
 
 const isPrime = (value) => {
