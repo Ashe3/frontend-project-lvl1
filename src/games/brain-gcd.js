@@ -21,4 +21,6 @@ const calculateAnswer = (expression) => {
     return calcGCD(values[0], values[1]);
 };
 
-games.game(games.rules.gcd, generateCondition, calculateAnswer);
+const runGame = games.game(games.rules.gcd, generateCondition, calculateAnswer);
+
+export default runGame;

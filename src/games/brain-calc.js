@@ -14,4 +14,6 @@ const generateCondition = () => {
 /* eslint no-eval: 0 */
 const calculateAnswer = (expression) => String(eval(expression));
 
-games.game(games.rules.calc, generateCondition, calculateAnswer);
+const runGame = games.game(games.rules.calc, generateCondition, calculateAnswer);
+
+export default runGame;

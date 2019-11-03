@@ -7,4 +7,6 @@ const generateCondition = () => games.generateRandNumber(MAX_VAL, MIN_VAL);
 
 const calculateAnswer = (number) => (number % 2 === 0 ? 'yes' : 'no');
 
-games.game(games.rules.even, generateCondition, calculateAnswer);
+const runGame = games.game(games.rules.even, generateCondition, calculateAnswer);
+
+export default runGame;

@@ -29,4 +29,6 @@ const isPrime = (value) => {
 
 const calculateAnswer = (number) => (isPrime(number) ? 'yes' : 'no');
 
-games.game(games.rules.prime, generateCondition, calculateAnswer);
+const runGame = games.game(games.rules.prime, generateCondition, calculateAnswer);
+
+export default runGame;

@@ -27,4 +27,6 @@ const generateCondition = () => {
 
 const calculateAnswer = () => answer;
 
-games.game(games.rules.progression, generateCondition, calculateAnswer);
+const runGame = games.game(games.rules.progression, generateCondition, calculateAnswer);
+
+export default runGame;
