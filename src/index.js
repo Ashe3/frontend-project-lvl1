@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 
 const ERROR = 1;
 const SUCCES = 0;
+const { random, round } = Math;
 
 export const greeting = () => {
     const name = readlineSync.question('May I have your name? ');
@@ -20,7 +21,7 @@ export const wrongAnswer = (answer, userName, correctAnswer) => {
     return ERROR;
 };
 
-export const generateRandNumber = (maxVal, minVal) => Math.round(Math.random() * (maxVal - minVal) + minVal);
+export const generateRandNumber = (maxVal, minVal) => round(random() * (maxVal - minVal) + minVal);
 
 const checkValue = (userAnswer, correctAnswer) => {
     if (userAnswer === correctAnswer) {
