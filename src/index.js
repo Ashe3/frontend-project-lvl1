@@ -2,12 +2,6 @@ import readlineSync from 'readline-sync';
 
 const ERROR = 1;
 const SUCCES = 0;
-const MAX_VAL = 250;
-const MIN_VAL = 1;
-
-export const headline = () => {
-    console.log('\nWelcome to the Brain Games!');
-};
 
 export const greeting = () => {
     const name = readlineSync.question('May I have your name? ');
@@ -17,6 +11,7 @@ export const greeting = () => {
 
 export const rules = {
     even: 'Answer "yes" if the number is even, otherwise asnwer "no".\n',
+    calc: 'What is the result of the expression?\n',
 };
 
 export const wrongAnswer = (answer, userName, correctAnswer) => {
@@ -25,9 +20,19 @@ export const wrongAnswer = (answer, userName, correctAnswer) => {
     return ERROR;
 };
 
-export const generateRandNumber = () => Math.round(Math.random() * (MAX_VAL * MIN_VAL) + MIN_VAL);
+export const generateRandNumber = (maxVal, minVal) => Math.round(Math.random() * (maxVal - minVal) + minVal);
 
-export const game = (userName, generateCondition, calculateAnswer, checkValue) => {
+const checkValue = (userAnswer, correctAnswer) => {
+    if (userAnswer === correctAnswer) {
+        return true;
+    }
+    return false;
+};
+
+export const game = (gamerule, generateCondition, calculateAnswer) => {
+    console.log(`\nWelcome to the Brain Games!\n${gamerule}`);
+    const name = greeting();
+
     for (let i = 0; i < 3; i += 1) {
         const question = generateCondition();
         const correctAnswer = calculateAnswer(question);
@@ -35,11 +40,11 @@ export const game = (userName, generateCondition, calculateAnswer, checkValue) =
         const userAsnwer = readlineSync.question('Your answer: ');
 
         if (!checkValue(userAsnwer, correctAnswer)) {
-            return wrongAnswer(userAsnwer, userName, correctAnswer);
+            return wrongAnswer(userAsnwer, name, correctAnswer);
         }
 
         console.log('Correct!');
     }
-    console.log(`Congratulations, ${userName}!\n`);
+    console.log(`Congratulations, ${name}!\n`);
     return SUCCES;
 };
