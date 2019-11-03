@@ -15,9 +15,10 @@ export const rules = {
     calc: 'What is the result of the expression?\n',
     gcd: 'Find the greatest common divisor of given numbers.\n',
     progression: 'What number is missing in the progression?\n',
+    prime: 'Answer "yes" if given number is prime. Otherwise answer "no".\n',
 };
 
-export const wrongAnswer = (answer, userName, correctAnswer) => {
+const wrongAnswer = (answer, userName, correctAnswer) => {
     console.log(`'${answer}' is wrong asnwer ;(. Correct answer was '${correctAnswer}'.`);
     console.log(`Let's try again, ${userName}!\n`);
     return ERROR;
