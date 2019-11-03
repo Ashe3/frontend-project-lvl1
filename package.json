@@ -1,6 +1,6 @@
 {
   "name": "frontend-project-lvl1",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "The first project is focused on knowledge with the JavaScript ecosystem. There is a rather difficult comparison with the native languages ​​of PHP, Ruby or Python. The number of concepts, tools and their bundles is so large that even the simplest developers sometimes head around the idea. Let it start all over the canon, an even simpler project brings along the tidbit. Check out the key components components of any modern js application:",
   "main": "index.js",
   "scripts": {
@@ -41,7 +41,8 @@
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
-    "brain-calc": "dist/bin/brain-calc.js"
+    "brain-calc": "dist/bin/brain-calc.js",
+    "brain-gcd": "dist/bin/brain-gcd.js"
   },
   "files": [
     "dist"
