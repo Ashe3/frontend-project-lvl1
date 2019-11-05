@@ -21,7 +21,7 @@ const isPrime = (number) => {
     if (number === 2) {
         return true;
     }
-    if (number % 2 === 0) {
+    if (games.isEven(number)) {
         return false;
     }
     return iter(number, 2, 1);

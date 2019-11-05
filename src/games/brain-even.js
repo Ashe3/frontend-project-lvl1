@@ -5,7 +5,7 @@ const minGenValue = 1;
 
 const generateCondition = () => games.generateRandNumber(maxGenValue, minGenValue);
 
-const calculateAnswer = (number) => (number % 2 === 0 ? 'yes' : 'no');
+const calculateAnswer = (number) => (games.isEven(number) ? 'yes' : 'no');
 
 const runGame = games.game(games.rules.even, generateCondition, calculateAnswer);
 

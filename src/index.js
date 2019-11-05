@@ -24,6 +24,8 @@ const wrongAnswer = (answer, userName, correctAnswer) => {
     return ERROR;
 };
 
+export const isEven = (number) => number % 2 === 0;
+
 export const generateRandNumber = (maxVal, minVal) => round(random() * (maxVal - minVal) + minVal);
 
 const checkValue = (userAnswer, correctAnswer) => {
