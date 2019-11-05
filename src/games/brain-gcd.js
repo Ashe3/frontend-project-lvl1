@@ -14,6 +14,7 @@ const calcGCD = (arg1, arg2) => {
 
 const calculateAnswer = (expression) => {
     const values = expression.split(' ').map((x) => Number(x));
+
     return calcGCD(values[0], values[1]);
 };
 

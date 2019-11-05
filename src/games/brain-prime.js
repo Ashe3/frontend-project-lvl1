@@ -23,6 +23,7 @@ const isPrime = (number) => {
     if (games.isEven(number)) {
         return false;
     }
+
     return iter(number, 2, 1);
 };
 
