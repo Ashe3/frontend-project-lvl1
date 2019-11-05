@@ -35,7 +35,6 @@ export const game = (gamerule, generateGameData) => {
     const name = greeting();
 
     for (let i = 0; i < 3; i += 1) {
-        console.log(generateGameData());
         const { gameCondition, correctAnswer } = generateGameData();
         console.log(`Question: ${gameCondition}`);
         const userAsnwer = readlineSync.question('Your answer: ');

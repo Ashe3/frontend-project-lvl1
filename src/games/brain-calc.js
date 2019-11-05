@@ -3,17 +3,33 @@ import * as games from '../index';
 const maxGenValue = 250;
 const minGenValue = 0;
 const symbolSequence = '+-*';
-const symbolSeqLength = symbolSequence.length();
+const symbolSeqLength = symbolSequence.length;
 
-/* eslint no-eval: 0 */
-const calculateAnswer = (expression) => String(eval(expression));
+const calculateAnswer = (firstNumber, secondNumber, symbol) => {
+    let result;
+    switch (symbol) {
+    case '+':
+        result = firstNumber + secondNumber;
+        break;
+    case '-':
+        result = firstNumber - secondNumber;
+        break;
+    case '*':
+        result = firstNumber * secondNumber;
+        break;
+    default:
+        return null;
+    }
+
+    return String(result);
+};
 
 const generateGameData = () => {
     const firstRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
     const secondRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
-    const symbol = symbolSequence[games.generateRandNumber(symbolSeqLength, minGenValue)];
+    const symbol = symbolSequence[games.generateRandNumber(symbolSeqLength - 1, minGenValue)];
     const gameCondition = `${firstRandNumber} ${symbol} ${secondRandNumber}`;
-    const correctAnswer = calculateAnswer(gameCondition);
+    const correctAnswer = calculateAnswer(firstRandNumber, secondRandNumber, symbol);
 
     return {
         gameCondition,
