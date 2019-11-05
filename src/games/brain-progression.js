@@ -4,6 +4,7 @@ const progressionCount = 10;
 const maxDifferenceValue = 9;
 const maxGenValue = 100;
 const minGenValue = 1;
+const gamerule = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
 
 const generateGameData = () => {
     const lostVal = games.generateRandNumber(progressionCount - 1, minGenValue);
@@ -28,6 +29,6 @@ const generateGameData = () => {
     };
 };
 
-const runGame = games.game(games.rules.progression, generateGameData);
+const runGame = games.game(gamerule, generateGameData);
 
 export default runGame;

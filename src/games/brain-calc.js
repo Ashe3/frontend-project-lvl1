@@ -4,6 +4,7 @@ const maxGenValue = 250;
 const minGenValue = 0;
 const symbolSequence = '+-*';
 const symbolSeqLength = symbolSequence.length;
+const gamerule = 'What is the result of the expression?\n';
 
 const calculateAnswer = (firstNumber, secondNumber, symbol) => {
     let result;
@@ -37,6 +38,6 @@ const generateGameData = () => {
     };
 };
 
-const runGame = games.game(games.rules.calc, generateGameData);
+const runGame = games.game(gamerule, generateGameData);
 
 export default runGame;

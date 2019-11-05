@@ -2,6 +2,7 @@ import * as games from '../index';
 
 const maxGenValue = 250;
 const minGenValue = 1;
+const gamerule = 'What number is missing in the progression?\n';
 
 const iter = (value, suggDivider, divider) => {
     const half = value / 2;
@@ -37,6 +38,6 @@ const generateGameData = () => {
     };
 };
 
-const runGame = games.game(games.rules.prime, generateGameData);
+const runGame = games.game(gamerule, generateGameData);
 
 export default runGame;

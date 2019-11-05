@@ -10,14 +10,6 @@ export const greeting = () => {
     return name;
 };
 
-export const rules = {
-    even: 'Answer "yes" if the number is even, otherwise asnwer "no".\n',
-    calc: 'What is the result of the expression?\n',
-    gcd: 'Find the greatest common divisor of given numbers.\n',
-    progression: 'What number is missing in the progression?\n',
-    prime: 'Answer "yes" if given number is prime. Otherwise answer "no".\n',
-};
-
 const wrongAnswer = (answer, userName, correctAnswer) => {
     console.log(`'${answer}' is wrong asnwer ;(. Correct answer was '${correctAnswer}'.`);
     console.log(`Let's try again, ${userName}!\n`);

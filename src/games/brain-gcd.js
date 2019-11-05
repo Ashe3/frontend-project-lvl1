@@ -2,6 +2,7 @@ import * as games from '../index';
 
 const maxGenValue = 250;
 const minGenValue = 2;
+const gamerule = 'Find the greatest common divisor of given numbers.\n';
 
 const calcGCD = (arg1, arg2) => {
     if (arg2 === 0) {
@@ -28,6 +29,6 @@ const generateGameData = () => {
     };
 };
 
-const runGame = games.game(games.rules.gcd, generateGameData);
+const runGame = games.game(gamerule, generateGameData);
 
 export default runGame;
