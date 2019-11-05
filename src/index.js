@@ -35,14 +35,14 @@ const checkValue = (userAnswer, correctAnswer) => {
     return false;
 };
 
-export const game = (gamerule, generateCondition, calculateAnswer) => {
+export const game = (gamerule, generateGameData) => {
     console.log(`\nWelcome to the Brain Games!\n${gamerule}`);
     const name = greeting();
 
     for (let i = 0; i < 3; i += 1) {
-        const question = generateCondition();
-        const correctAnswer = calculateAnswer(question);
-        console.log(`Question: ${question}`);
+        console.log(generateGameData());
+        const { gameCondition, correctAnswer } = generateGameData();
+        console.log(`Question: ${gameCondition}`);
         const userAsnwer = readlineSync.question('Your answer: ');
 
         if (!checkValue(userAsnwer, correctAnswer)) {

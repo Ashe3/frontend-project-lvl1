@@ -3,8 +3,6 @@ import * as games from '../index';
 const maxGenValue = 250;
 const minGenValue = 1;
 
-const generateCondition = () => games.generateRandNumber(maxGenValue, minGenValue);
-
 const iter = (value, suggDivider, divider) => {
     const half = value / 2;
     if (suggDivider > half && divider === 1) {
@@ -29,6 +27,16 @@ const isPrime = (number) => {
 
 const calculateAnswer = (number) => (isPrime(number) ? 'yes' : 'no');
 
-const runGame = games.game(games.rules.prime, generateCondition, calculateAnswer);
+const generateGameData = () => {
+    const gameCondition = games.generateRandNumber(maxGenValue, minGenValue);
+    const correctAnswer = calculateAnswer(gameCondition);
+
+    return {
+        gameCondition,
+        correctAnswer,
+    };
+};
+
+const runGame = games.game(games.rules.prime, generateGameData);
 
 export default runGame;

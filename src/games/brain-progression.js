@@ -4,29 +4,30 @@ const progressionCount = 10;
 const maxDifferenceValue = 9;
 const maxGenValue = 100;
 const minGenValue = 1;
-let answer;
 
-const generateCondition = () => {
+const generateGameData = () => {
     const lostVal = games.generateRandNumber(progressionCount - 1, minGenValue);
     const difference = games.generateRandNumber(maxDifferenceValue, minGenValue);
     let currValue = games.generateRandNumber(maxGenValue, minGenValue);
-    let progresion = '';
+    let gameCondition = '';
+    let correctAnswer;
 
     for (let i = 0; i < progressionCount; i += 1) {
         if (i === lostVal) {
-            progresion += '.. ';
-            answer = String(currValue);
+            gameCondition += '.. ';
+            correctAnswer = String(currValue);
         } else {
-            progresion += `${currValue} `;
+            gameCondition += `${currValue} `;
         }
         currValue += difference;
     }
 
-    return progresion;
+    return {
+        gameCondition,
+        correctAnswer,
+    };
 };
 
-const calculateAnswer = () => answer;
-
-const runGame = games.game(games.rules.progression, generateCondition, calculateAnswer);
+const runGame = games.game(games.rules.progression, generateGameData);
 
 export default runGame;
