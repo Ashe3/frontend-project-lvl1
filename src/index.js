@@ -28,12 +28,7 @@ export const isEven = (number) => number % 2 === 0;
 
 export const generateRandNumber = (maxVal, minVal) => round(random() * (maxVal - minVal) + minVal);
 
-const checkValue = (userAnswer, correctAnswer) => {
-    if (userAnswer === correctAnswer) {
-        return true;
-    }
-    return false;
-};
+const checkValue = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
 
 export const game = (gamerule, generateGameData) => {
     console.log(`\nWelcome to the Brain Games!\n${gamerule}`);
