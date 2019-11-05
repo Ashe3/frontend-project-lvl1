@@ -4,7 +4,7 @@ const progressionCount = 10;
 const maxDifferenceValue = 9;
 const maxGenValue = 100;
 const minGenValue = 1;
-const gamerule = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
+const gamerule = 'What number is missing in the progression?\n';
 
 const generateGameData = () => {
     const lostVal = games.generateRandNumber(progressionCount - 1, minGenValue);
