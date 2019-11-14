@@ -4,7 +4,7 @@ const progressionCount = 10;
 const maxDifferenceValue = 9;
 const maxGenValue = 100;
 const minGenValue = 1;
-const gamerule = 'What number is missing in the progression?\n';
+const gamerule = 'What number is missing in the progression?';
 
 const generateGameData = () => {
     const lostVal = games.generateRandNumber(progressionCount - 1, minGenValue);
@@ -15,10 +15,10 @@ const generateGameData = () => {
 
     for (let i = 0; i < progressionCount; i += 1) {
         if (i === lostVal) {
-            gameCondition += '.. ';
+            gameCondition = `${gameCondition} .. `;
             correctAnswer = String(currValue);
         } else {
-            gameCondition += `${currValue} `;
+            gameCondition = `${gameCondition} ${currValue} `;
         }
         currValue += difference;
     }
@@ -29,6 +29,4 @@ const generateGameData = () => {
     };
 };
 
-const runGame = games.game(gamerule, generateGameData);
-
-export default runGame;
+export default () => games.game(gamerule, generateGameData);

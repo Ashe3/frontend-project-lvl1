@@ -2,9 +2,9 @@ import * as games from '../index';
 
 const maxGenValue = 250;
 const minGenValue = 0;
-const symbolSequence = '+-*';
-const symbolSeqLength = symbolSequence.length;
-const gamerule = 'What is the result of the expression?\n';
+const operationSeq = '+-*';
+const operationSeqLen = operationSeq.length;
+const gamerule = 'What is the result of the expression?';
 
 const calculateAnswer = (firstNumber, secondNumber, symbol) => {
     let result;
@@ -22,15 +22,15 @@ const calculateAnswer = (firstNumber, secondNumber, symbol) => {
         return null;
     }
 
-    return String(result);
+    return result;
 };
 
 const generateGameData = () => {
     const firstRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
     const secondRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
-    const symbol = symbolSequence[games.generateRandNumber(symbolSeqLength - 1, minGenValue)];
+    const symbol = operationSeq[games.generateRandNumber(operationSeqLen - 1, minGenValue)];
     const gameCondition = `${firstRandNumber} ${symbol} ${secondRandNumber}`;
-    const correctAnswer = calculateAnswer(firstRandNumber, secondRandNumber, symbol);
+    const correctAnswer = String(calculateAnswer(firstRandNumber, secondRandNumber, symbol));
 
     return {
         gameCondition,
@@ -38,6 +38,4 @@ const generateGameData = () => {
     };
 };
 
-const runGame = games.game(gamerule, generateGameData);
-
-export default runGame;
+export default () => games.game(gamerule, generateGameData);

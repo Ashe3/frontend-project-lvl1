@@ -2,9 +2,11 @@ import * as games from '../index';
 
 const maxGeneratedValue = 250;
 const minGeneratedValue = 1;
-const gamerule = 'Answer "yes" if the number is even, otherwise asnwer "no".\n';
+const gamerule = 'Answer "yes" if the number is even, otherwise asnwer "no".';
 
-const calculateAnswer = (number) => (games.isEven(number) ? 'yes' : 'no');
+const isEven = (number) => number % 2 === 0;
+
+const calculateAnswer = (number) => (isEven(number) ? 'yes' : 'no');
 
 const generateGameData = () => {
     const gameCondition = games.generateRandNumber(maxGeneratedValue, minGeneratedValue);
@@ -16,6 +18,4 @@ const generateGameData = () => {
     };
 };
 
-const runGame = games.game(gamerule, generateGameData);
-
-export default runGame;
+export default () => games.game(gamerule, generateGameData);
