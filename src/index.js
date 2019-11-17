@@ -16,8 +16,8 @@ export const generateRandNumber = (maxVal, minVal) => round(random() * (maxVal -
 
 const checkValue = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
 
-export const game = (gamerule, generateGameData) => {
-    console.log(`\nWelcome to the Brain Games!\n${gamerule}\n`);
+export const game = (gameRule, generateGameData) => {
+    console.log(`\nWelcome to the Brain Games!\n${gameRule}\n`);
     const name = readlineSync.question('May I have your name? ');
     console.log(`Hello, ${name}!\n`);
 

@@ -1,15 +1,15 @@
-import * as games from '../index';
+import { generateRandNumber, game } from '../index';
 
 const progressionCount = 10;
 const maxDifferenceValue = 9;
 const maxGenValue = 100;
 const minGenValue = 1;
-const gamerule = 'What number is missing in the progression?';
+const gameRule = 'What number is missing in the progression?';
 
 const generateGameData = () => {
-    const lostVal = games.generateRandNumber(progressionCount - 1, minGenValue);
-    const difference = games.generateRandNumber(maxDifferenceValue, minGenValue);
-    let currValue = games.generateRandNumber(maxGenValue, minGenValue);
+    const lostVal = generateRandNumber(progressionCount - 1, minGenValue);
+    const difference = generateRandNumber(maxDifferenceValue, minGenValue);
+    let currValue = generateRandNumber(maxGenValue, minGenValue);
     let gameCondition = '';
     let correctAnswer;
 
@@ -29,4 +29,4 @@ const generateGameData = () => {
     };
 };
 
-export default () => games.game(gamerule, generateGameData);
+export default () => game(gameRule, generateGameData);

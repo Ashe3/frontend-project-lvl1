@@ -1,8 +1,8 @@
-import * as games from '../index';
+import { generateRandNumber, game } from '../index';
 
 const maxGenValue = 250;
 const minGenValue = 1;
-const gamerule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const iter = (value, suggDivider, divider) => {
     const half = value / 2;
@@ -27,11 +27,9 @@ const isPrime = (number) => {
     return iter(number, 2, 1);
 };
 
-const calculateAnswer = (number) => (isPrime(number) ? 'yes' : 'no');
-
 const generateGameData = () => {
-    const gameCondition = games.generateRandNumber(maxGenValue, minGenValue);
-    const correctAnswer = calculateAnswer(gameCondition);
+    const gameCondition = generateRandNumber(maxGenValue, minGenValue);
+    const correctAnswer = isPrime(gameCondition) ? 'yes' : 'no';
 
     return {
         gameCondition,
@@ -39,4 +37,4 @@ const generateGameData = () => {
     };
 };
 
-export default () => games.game(gamerule, generateGameData);
+export default () => game(gameRule, generateGameData);

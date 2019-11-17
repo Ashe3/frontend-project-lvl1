@@ -1,8 +1,8 @@
-import * as games from '../index';
+import { generateRandNumber, game } from '../index';
 
 const maxGenValue = 250;
 const minGenValue = 2;
-const gamerule = 'Find the greatest common divisor of given numbers.';
+const gameRule = 'Find the greatest common divisor of given numbers.';
 
 const calcGCD = (arg1, arg2) => {
     if (arg2 === 0) {
@@ -19,8 +19,8 @@ const calculateAnswer = (expression) => {
 };
 
 const generateGameData = () => {
-    const firstRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
-    const secondRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
+    const firstRandNumber = generateRandNumber(maxGenValue, minGenValue);
+    const secondRandNumber = generateRandNumber(maxGenValue, minGenValue);
     const gameCondition = `${firstRandNumber} ${secondRandNumber}`;
     const correctAnswer = calculateAnswer(gameCondition);
 
@@ -30,4 +30,4 @@ const generateGameData = () => {
     };
 };
 
-export default () => games.game(gamerule, generateGameData);
+export default () => game(gameRule, generateGameData);

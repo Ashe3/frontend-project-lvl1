@@ -1,22 +1,21 @@
-import * as games from '../index';
+import { generateRandNumber, game } from '../index';
 
 const maxGenValue = 250;
 const minGenValue = 0;
-const operationSeq = '+-*';
-const operationSeqLen = operationSeq.length;
-const gamerule = 'What is the result of the expression?';
+const operations = '+-*';
+const gameRule = 'What is the result of the expression?';
 
-const calculateAnswer = (firstNumber, secondNumber, symbol) => {
+const calculateAnswer = (operand1, operand2, operation) => {
     let result;
-    switch (symbol) {
+    switch (operation) {
     case '+':
-        result = firstNumber + secondNumber;
+        result = operand1 + operand2;
         break;
     case '-':
-        result = firstNumber - secondNumber;
+        result = operand1 - operand2;
         break;
     case '*':
-        result = firstNumber * secondNumber;
+        result = operand1 * operand2;
         break;
     default:
         return null;
@@ -26,9 +25,9 @@ const calculateAnswer = (firstNumber, secondNumber, symbol) => {
 };
 
 const generateGameData = () => {
-    const firstRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
-    const secondRandNumber = games.generateRandNumber(maxGenValue, minGenValue);
-    const symbol = operationSeq[games.generateRandNumber(operationSeqLen - 1, minGenValue)];
+    const firstRandNumber = generateRandNumber(maxGenValue, minGenValue);
+    const secondRandNumber = generateRandNumber(maxGenValue, minGenValue);
+    const symbol = operations[generateRandNumber(operations.length - 1, minGenValue)];
     const gameCondition = `${firstRandNumber} ${symbol} ${secondRandNumber}`;
     const correctAnswer = String(calculateAnswer(firstRandNumber, secondRandNumber, symbol));
 
@@ -38,4 +37,4 @@ const generateGameData = () => {
     };
 };
 
-export default () => games.game(gamerule, generateGameData);
+export default () => game(gameRule, generateGameData);
