@@ -15,10 +15,10 @@ const generateGameData = () => {
 
     for (let i = 0; i < progressionCount; i += 1) {
         if (i === lostVal) {
-            gameCondition = `${gameCondition} .. `;
+            gameCondition = `${gameCondition} ..`;
             correctAnswer = String(currValue);
         } else {
-            gameCondition = `${gameCondition} ${currValue} `;
+            gameCondition = `${gameCondition} ${currValue}`;
         }
         currValue += difference;
     }
