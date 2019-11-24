@@ -1,4 +1,5 @@
-import { generateRandNumber, game } from '../index';
+import game from '../index';
+import generateRandNumber from '../utils';
 
 const progressionCount = 10;
 const maxDifferenceValue = 9;
@@ -7,20 +8,19 @@ const minGenValue = 1;
 const gameRule = 'What number is missing in the progression?';
 
 const generateGameData = () => {
-    const lostVal = generateRandNumber(progressionCount - 1, minGenValue);
-    const difference = generateRandNumber(maxDifferenceValue, minGenValue);
-    let currValue = generateRandNumber(maxGenValue, minGenValue);
+    const lostValue = generateRandNumber(progressionCount - 1, minGenValue);
+    const difference = generateRandNumber(minGenValue, maxDifferenceValue);
+    let currerntValue = generateRandNumber(minGenValue, maxGenValue);
+    const correctAnswer = String(currerntValue + difference * lostValue);
     let gameCondition = '';
-    let correctAnswer;
 
     for (let i = 0; i < progressionCount; i += 1) {
-        if (i === lostVal) {
+        if (i === lostValue) {
             gameCondition = `${gameCondition} ..`;
-            correctAnswer = String(currValue);
         } else {
-            gameCondition = `${gameCondition} ${currValue}`;
+            gameCondition = `${gameCondition} ${currerntValue}`;
         }
-        currValue += difference;
+        currerntValue += difference;
     }
 
     return {

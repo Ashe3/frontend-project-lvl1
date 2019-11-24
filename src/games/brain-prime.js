@@ -1,4 +1,5 @@
-import { generateRandNumber, game } from '../index';
+import game from '../index';
+import generateRandNumber from '../utils';
 
 const maxGenValue = 250;
 const minGenValue = 1;
@@ -20,7 +21,7 @@ const isPrime = (number) => {
     if (number === 2) {
         return true;
     }
-    if (number % 2 === 0) {
+    if (number % 2 === 0 || number < 2) {
         return false;
     }
 
@@ -28,7 +29,7 @@ const isPrime = (number) => {
 };
 
 const generateGameData = () => {
-    const gameCondition = generateRandNumber(maxGenValue, minGenValue);
+    const gameCondition = generateRandNumber(minGenValue, maxGenValue);
     const correctAnswer = isPrime(gameCondition) ? 'yes' : 'no';
 
     return {

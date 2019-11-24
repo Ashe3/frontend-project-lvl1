@@ -3,20 +3,13 @@ import readlineSync from 'readline-sync';
 const ERROR = 1;
 const SUCCES = 0;
 const repeatCount = 3;
-const { random, round } = Math;
 
 const wrongAnswer = (answer, userName, correctAnswer) => {
     console.log(`'${answer}' is wrong asnwer ;(. Correct answer was '${correctAnswer}'.`);
     console.log(`Let's try again, ${userName}!\n`);
-
-    return ERROR;
 };
 
-export const generateRandNumber = (maxVal, minVal) => round(random() * (maxVal - minVal) + minVal);
-
-const checkValue = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
-
-export const game = (gameRule, generateGameData) => {
+const game = (gameRule, generateGameData) => {
     console.log(`\nWelcome to the Brain Games!\n${gameRule}\n`);
     const name = readlineSync.question('May I have your name? ');
     console.log(`Hello, ${name}!\n`);
@@ -26,8 +19,9 @@ export const game = (gameRule, generateGameData) => {
         console.log(`Question: ${gameCondition}`);
         const userAsnwer = readlineSync.question('Your answer: ');
 
-        if (!checkValue(userAsnwer, correctAnswer)) {
-            return wrongAnswer(userAsnwer, name, correctAnswer);
+        if (!(userAsnwer === correctAnswer)) {
+            wrongAnswer(userAsnwer, name, correctAnswer);
+            return ERROR;
         }
         console.log('Correct!');
     }
@@ -35,3 +29,5 @@ export const game = (gameRule, generateGameData) => {
 
     return SUCCES;
 };
+
+export default game;

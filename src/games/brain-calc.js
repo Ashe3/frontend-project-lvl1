@@ -1,4 +1,5 @@
-import { generateRandNumber, game } from '../index';
+import game from '../index';
+import generateRandNumber from '../utils';
 
 const maxGenValue = 250;
 const minGenValue = 0;
@@ -25,11 +26,11 @@ const calculateAnswer = (operand1, operand2, operation) => {
 };
 
 const generateGameData = () => {
-    const firstRandNumber = generateRandNumber(maxGenValue, minGenValue);
-    const secondRandNumber = generateRandNumber(maxGenValue, minGenValue);
-    const symbol = operations[generateRandNumber(operations.length - 1, minGenValue)];
-    const gameCondition = `${firstRandNumber} ${symbol} ${secondRandNumber}`;
-    const correctAnswer = String(calculateAnswer(firstRandNumber, secondRandNumber, symbol));
+    const random1 = generateRandNumber(minGenValue, maxGenValue);
+    const random2 = generateRandNumber(maxGenValue, maxGenValue);
+    const operation = operations[generateRandNumber(operations.length - 1, minGenValue)];
+    const gameCondition = `${random1} ${operation} ${random2}`;
+    const correctAnswer = String(calculateAnswer(random1, random2, operation));
 
     return {
         gameCondition,
