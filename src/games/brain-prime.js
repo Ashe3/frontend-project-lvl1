@@ -6,9 +6,6 @@ const minGeneratedValue = 1;
 const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
-    if (number === 2) {
-        return true;
-    }
     if (number % 2 === 0 || number < 2) {
         return false;
     }
