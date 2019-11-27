@@ -5,18 +5,6 @@ const maxGenValue = 250;
 const minGenValue = 1;
 const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const iter = (value, suggDivider, divider) => {
-    const half = value / 2;
-    if (suggDivider > half && divider === 1) {
-        return true;
-    }
-    if (value % suggDivider === 0) {
-        return false;
-    }
-
-    return iter(value, suggDivider + 1, divider);
-};
-
 const isPrime = (number) => {
     if (number === 2) {
         return true;
@@ -24,16 +12,22 @@ const isPrime = (number) => {
     if (number % 2 === 0 || number < 2) {
         return false;
     }
+    const limit = Math.floor(Math.sqrt(number));
+    for (let divider = 3; divider <= limit; divider += 1) {
+        if (number % divider === 0) {
+            return false;
+        }
+    }
 
-    return iter(number, 2, 1);
+    return true;
 };
 
 const generateGameData = () => {
-    const gameCondition = generateRandNumber(minGenValue, maxGenValue);
-    const correctAnswer = isPrime(gameCondition) ? 'yes' : 'no';
+    const question = generateRandNumber(minGenValue, maxGenValue);
+    const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
     return {
-        gameCondition,
+        gameCondition: question,
         correctAnswer,
     };
 };
