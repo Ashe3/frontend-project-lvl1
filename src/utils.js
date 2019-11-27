@@ -1,5 +1,7 @@
 const { random, round } = Math;
 
-const generateRandNumber = (minVal, maxVal) => round(random() * (maxVal - minVal) + minVal);
+const generateRandNumber = (minValue, maxValue) => (
+    round(random() * (maxValue - minValue) + minValue)
+);
 
 export default generateRandNumber;

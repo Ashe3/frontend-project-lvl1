@@ -1,8 +1,8 @@
 import game from '../index';
 import generateRandNumber from '../utils';
 
-const maxGenValue = 250;
-const minGenValue = 1;
+const maxGeneratedValue = 250;
+const minGeneratedValue = 1;
 const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
@@ -23,7 +23,7 @@ const isPrime = (number) => {
 };
 
 const generateGameData = () => {
-    const question = generateRandNumber(minGenValue, maxGenValue);
+    const question = generateRandNumber(minGeneratedValue, maxGeneratedValue);
     const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
     return {

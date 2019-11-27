@@ -1,8 +1,7 @@
 {
   "name": "frontend-project-lvl1",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Project is focused on knowledge with the JavaScript ecosystem. There is a rather difficult comparison with the native languages ​​of PHP, Ruby or Python. The number of concepts, tools and their bundles is so large that even the simplest developers sometimes head around the idea. Let it start all over the canon, an even simpler project brings along the tidbit. Check out the key components components of any modern js application:",
-  "main": "index.js",
   "scripts": {
     "test": "test",
     "build": "NODE_ENV=production babel src --out-dir dist --source-map inline",
