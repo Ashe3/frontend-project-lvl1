@@ -9,11 +9,10 @@ const isEven = (number) => (number % 2 === 0);
 
 const generateGameData = () => {
     const question = generateRandNumber(minGeneratedValue, maxGeneratedValue);
-    const correctAnswer = isEven(question) ? 'yes' : 'no';
 
     return {
         gameCondition: question,
-        correctAnswer,
+        correctAnswer: isEven(question) ? 'yes' : 'no',
     };
 };
 
