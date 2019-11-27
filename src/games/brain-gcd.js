@@ -16,7 +16,7 @@ const generateGameData = () => {
     const random1 = generateRandNumber(minGenValue, maxGenValue);
     const random2 = generateRandNumber(minGenValue, maxGenValue);
     const gameCondition = `${random1} ${random2}`;
-    const correctAnswer = String(calcGCD(...gameCondition.split(' ').map((x) => Number(x))));
+    const correctAnswer = String(calcGCD(random1, random2));
 
     return {
         gameCondition,
