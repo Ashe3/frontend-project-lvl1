@@ -15,7 +15,7 @@ const getGame = (gameRule, generateGameData) => {
     if (!(userAsnwer === correctAnswer)) {
       console.log(`'${userAsnwer}' is wrong asnwer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!\n`);
-      return; // exit
+      return;
     }
     console.log('Correct!');
   }
